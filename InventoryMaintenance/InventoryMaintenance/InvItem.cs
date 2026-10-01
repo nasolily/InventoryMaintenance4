@@ -4,10 +4,12 @@ using System.Text;
 
 namespace InventoryMaintenance
 {
-    public class InvItem
+    public class InvItem : IDisplayable
     {
-        public InvItem() { } 
+        // Nadia Cowins
+        public InvItem() { }
 
+        // Nadia Cowins
         public InvItem(int itemNo, string description, decimal price)
         {
             ItemNo = itemNo;
@@ -15,10 +17,12 @@ namespace InventoryMaintenance
             Price = price;
         }
 
+        // Nadia Cowins
         public int ItemNo { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
 
+        // Nadia Cowins
         public virtual string GetDisplayText() => $"{ItemNo}    {Description} ({Price:c})";
     }
 }

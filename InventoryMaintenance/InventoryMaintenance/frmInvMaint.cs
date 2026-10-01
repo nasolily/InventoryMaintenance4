@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,13 +13,16 @@ namespace InventoryMaintenance
 {
     public partial class frmInvMaint : Form
     {
+        // Nadia Cowins
         public frmInvMaint()
         {
             InitializeComponent();
         }
 
+        // Nadia Cowins
         private InvItemList invItems = new InvItemList();
 
+        // Nadia Cowins
         private void frmInvMaint_Load(object sender, EventArgs e)
         {
             invItems.Changed += new InvItemList.ChangeHandler(HandleChange);
@@ -26,6 +30,7 @@ namespace InventoryMaintenance
             FillItemListBox();
         }
 
+        // Nadia Cowins
         private void FillItemListBox()
         {
             InvItem item;
@@ -37,16 +42,22 @@ namespace InventoryMaintenance
             }
         }
 
+        // Nadia Cowins
         private void btnAdd_Click(object sender, EventArgs e)
         {
             frmNewItem newItemForm = new frmNewItem();
             InvItem invItem = newItemForm.GetNewItem();
-            if (invItem != null)
-            {
+
+            
+            if (invItem != null) {
+                Debug.WriteLine($"Item type: {invItem.GetType()}");
+                Debug.WriteLine($"Item is InvItem: {invItem is InvItem}");
+                Debug.WriteLine($"Item is IDisplayable: {invItem is IDisplayable}");
                 invItems += invItem;
             }
         }
 
+        // Nadia Cowins
         private void btnDelete_Click(object sender, EventArgs e)
         {
             int i = lstItems.SelectedIndex;
@@ -65,12 +76,14 @@ namespace InventoryMaintenance
             }
         }
 
+        // Nadia Cowins
         private void HandleChange(InvItemList invItems)
         {
             invItems.Save();
             FillItemListBox();
         }
-
+        
+        // Nadia Cowins
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();

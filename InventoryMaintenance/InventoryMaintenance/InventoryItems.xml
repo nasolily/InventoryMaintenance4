@@ -28,4 +28,11 @@
         <Price>89.95</Price>
         <Size>15 gallon</Size>
     </Item>
+    <Item>
+        <Type>Plant</Type>
+        <ItemNo>7821932</ItemNo>
+        <Description>Pink Carnations</Description>
+        <Price>13.49</Price>
+        <Size>1 gallon</Size>
+    </Item>
 </Items>
